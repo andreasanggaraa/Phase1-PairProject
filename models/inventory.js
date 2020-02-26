@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     Inventory.init({
       stockName: DataTypes.STRING,
       quantity: DataTypes.FLOAT 
+    },
+    {
+      sequelize
     })
 
   Inventory.associate = function(models) {

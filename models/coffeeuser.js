@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       order: DataTypes.STRING,
       status: DataTypes.STRING,
       price: DataTypes.INTEGER
+    },{
+      sequelize
     })
 
   CoffeeUser.associate = function(models) {
