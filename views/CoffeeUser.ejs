@@ -7,36 +7,5 @@
 </head>
 <body>
     <h2>Today's Coffee Order</h2>
-    <table>
-
-        status: DataTypes.STRING,
-        UserId: DataTypes.INTEGER,
-        CoffeeId: DataTypes.INTEGER,
-        price: DataTypes.INTEGER
-
-        <tr>
-            <th>Status</th>
-            <th>Name</th>
-            <th>Order</th>
-            <th>Total Price</th>
-        </tr>
-        <tr>
-            <td><%= movieData[i]["name"] %></td>
-            <td><%= movieData[i]["released_year"] %></td>
-            <td><%= movieData[i]["genre"] %></td>
-            <% if(movieData[i]["ProductionHouse"] === null ) { %>
-                <td><%= "unknown" %></td>
-              <% } else { %>
-                <td><%= movieData[i]["ProductionHouse"].name_prodHouse %></td>
-              <% } %> 
-            <td>
-                <a href="/movies/edit/<%= movieData[i]["id"] %> ">Edit</a> | 
-                <a href="/movies/delete/<%= movieData[i]["id"] %>" onclick="return confirm('Are you sure you want to delete this item?')" >Delete</a> |
-                <a href="/movies/addCast/<%= movieData[i]["id"] %>">Add Cast</a>
-            </td>
-        </tr>
-        <% } %> 
-
-    </table>
 </body>
 </html>
