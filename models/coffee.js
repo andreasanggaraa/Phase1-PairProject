@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     })
     
   Coffee.associate = function(models) {
-    Cast.hasMany(models.CoffeeUser)
+    Coffee.hasMany(models.CoffeeUser)
   };
-  
+
   return Coffee;
 };
