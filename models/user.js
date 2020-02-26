@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
       freecup: DataTypes.INTEGER,
-      purcaseToReward: DataTypes.STRING,
+      purchaseToReward: DataTypes.STRING,
       role: DataTypes.STRING
     },
     {

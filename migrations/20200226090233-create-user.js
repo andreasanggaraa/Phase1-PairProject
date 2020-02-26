@@ -26,7 +26,7 @@ module.exports = {
       freecup: {
         type: Sequelize.INTEGER
       },
-      purcaseToReward: {
+      purchaseToReward: {
         type: Sequelize.STRING
       },
       role: {

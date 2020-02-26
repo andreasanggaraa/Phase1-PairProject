@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Americano",
+        "sellingPrice": 17000,
+        "espresso": 2,
+        "sugar": 0,
+        "milk": 0,
+        "ice": 2
+    },
+    {
+        "name": "Caffee Latte",
+        "sellingPrice": 20000,
+        "espresso": 1,
+        "sugar": 1,
+        "milk": 1,
+        "ice": 2
+    }
+]

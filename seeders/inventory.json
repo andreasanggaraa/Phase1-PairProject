@@ -1,0 +1,22 @@
+[
+    {
+        "stockName": "espresso",
+        "quantity": 250
+    },
+    {
+        "stockName": "ice",
+        "quantity": 250
+    },
+    {
+        "stockName": "cup",
+        "quantity": 250
+    },
+    {
+        "stockName": "sugar",
+        "quantity": 250
+    },
+    {
+        "stockName": "milk",
+        "quantity": 250
+    }
+]

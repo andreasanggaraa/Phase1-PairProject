@@ -1,0 +1,20 @@
+[
+    {
+        "username": "ace",
+        "password": "ace123",
+        "firstName": "Andreas",
+        "lastName": "Anggara",
+        "freecup": 1,
+        "purchaseToReward": 8,
+        "role": "customer"
+    },
+    {
+        "username": "andre",
+        "password": "andre123",
+        "firstName": "Andre",
+        "lastName": "Gunawan",
+        "freecup": 0,
+        "purchaseToReward": 0,
+        "role": "admin"
+    }
+]
