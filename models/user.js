@@ -4,9 +4,10 @@ module.exports = (sequelize, DataTypes) => {
   class User extends sequelize.Sequelize.Model {}
 
     User.init({
+      username: DataTypes.STRING,
+      password: DataTypes.STRING,
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
-      birthday: DataTypes.DATEONLY,
       freecup: DataTypes.INTEGER,
       purcaseToReward: DataTypes.STRING,
       role: DataTypes.STRING
@@ -14,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize
     })
-    
+
   User.associate = function(models) {
     User.hasMany(models.CoffeeUser)
   };

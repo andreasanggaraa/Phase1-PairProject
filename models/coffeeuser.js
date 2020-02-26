@@ -4,9 +4,10 @@ module.exports = (sequelize, DataTypes) => {
   class CoffeeUser extends sequelize.Sequelize.Model {}
   
     CoffeeUser.init({
-      status: DataTypes.STRING,
       UserId: DataTypes.INTEGER,
       CoffeeId: DataTypes.INTEGER,
+      order: DataTypes.STRING,
+      status: DataTypes.STRING,
       price: DataTypes.INTEGER
     })
 
