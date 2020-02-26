@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      status: {
-        type: Sequelize.STRING
-      },
       UserId: {
         type: Sequelize.INTEGER,
         references: {
@@ -28,6 +25,12 @@ module.exports = {
         },
         onDelete: 'cascade',
         onUpdate: 'cascade'
+      },
+      order: {
+        type: Sequelize.STRING
+      },
+      status: {
+        type: Sequelize.STRING
       },
       price: {
         type: Sequelize.INTEGER

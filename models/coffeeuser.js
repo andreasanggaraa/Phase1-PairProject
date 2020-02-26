@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     CoffeeUser.init({
       UserId: DataTypes.INTEGER,
       CoffeeId: DataTypes.INTEGER,
-      order: DataTypes.STRING,
+      order: DataTypes.STRING,      
       status: DataTypes.STRING,
       price: DataTypes.INTEGER
     },{

@@ -18,6 +18,6 @@ module.exports = (sequelize, DataTypes) => {
   Coffee.associate = function(models) {
     Coffee.hasMany(models.CoffeeUser)
   };
-  
+
   return Coffee;
 };

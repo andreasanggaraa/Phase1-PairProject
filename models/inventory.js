@@ -14,5 +14,6 @@ module.exports = (sequelize, DataTypes) => {
   Inventory.associate = function(models) {
     
   };
+  
   return Inventory;
 };
