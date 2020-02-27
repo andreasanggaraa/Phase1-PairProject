@@ -1,4 +1,4 @@
-const { CoffeeUser } = require ("../models/index.js")
+const { CoffeeUser, Coffee } = require ("../models/index.js")
 
 class CoffeeUserController {
     static findAll(req,res){
@@ -11,15 +11,17 @@ class CoffeeUserController {
             res.send(err)
         })
     }
+
     static addForm(req,res) {
-        CoffeeUser.findAll()
-        .then(function(result){
-            res.render("coffeeUser/coffeeUserAdd.ejs")
+        Coffee.findAll()
+        .then (function(menus){            
+            res.render('menuSelection.ejs', { menus : menus })
         })
-        .catch(function(err){
+        .catch (function(err){
             res.send(err)
         })
     }
+
     static createNewEntry(req,res) {
         CoffeeUser.create({
             UserId : req.body.UserId,

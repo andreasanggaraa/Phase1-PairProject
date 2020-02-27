@@ -2,18 +2,20 @@ const { User } = require('../models/index.js')
 
 class UserController {
 
-    static dashboard(req, res) {
+    static findAll(req, res) {
+        let session = req.session
         User.findAll()
             .then(users => {
-                res.send(users)
+                res.render('user/users.ejs', { users, session })
             })
             .catch(err => {
-                res.send(users)
+                res.send(err)
             })
     }
     
     static addUserLanding(req, res) {
-        res.render('user/addUser.ejs')
+        let session = req.session
+        res.render('register.ejs', { session })
     }
 
     static addUser(req, res) {

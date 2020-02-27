@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Users</title>
+    <%- include('../partials/bootstrap-head.ejs'); %>
 </head>
-<body>
-    <h2>Available Coffee for Order</h2>
 
-    <table>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <table class="table table-striped" style="width:85%;margin-top: 50px;" align="center">
         <tr>
-            <th>Name</th>
-            <th>Selling Price</th>
+          <th>#</th>
+          <th>Menu</th> 
+          <th>Price</th>
         </tr>
-        <% for (i = 0; i < coffeeData.length; i++) { %> 
-        <tr>
-            <td><%= coffeeData[i].dataValues["name"] %></td>
-            <td><%= coffeeData[i].dataValues["sellingPrice"] %></td>
-        </tr>
-    <% } %> 
-    </table>
+        <% for( let i = 0; i < menus.length; i++ ) { %>
+            <tr>
+                <td><%= menus[i].id %> </td>
+                <td><%= menus[i].name %> </td>
+                <td><%= menus[i].sellingPrice %> </td>
+              </tr>
+        <% } %>
+      </table>
+
+<%- include('../partials/bootstrap-script.ejs'); %>
 </body>
 </html>

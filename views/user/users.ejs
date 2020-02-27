@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <%- include('../partials/bootstrap-head.ejs'); %>
+</head>
+
+<body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <table class="table table-striped" style="width:85%;margin-top: 50px;" align="center">
+        <tr>
+          <th>id</th>
+          <th>Nama</th> 
+          <th>Free Cup</th>
+          <th>Action</th>
+        </tr>
+        <% for( let i = 0; i < users.length; i++ ) { %>
+            <tr>
+                <td><%= users[i].id %> </td>
+                <td><%= `${users[i].firstName} ${users[i].lastName}` %> </td>
+                <td><%= users[i].freecup %> </td>
+                <td> Redeem Reward</td>
+              </tr>
+        <% } %>
+      </table>
+
+<%- include('../partials/bootstrap-script.ejs'); %>
+</body>
+
+</html>
