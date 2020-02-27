@@ -15,7 +15,7 @@ class CoffeeUserController {
     static addForm(req,res) {
         Coffee.findAll()
             .then(menus => {
-                res.render('menuSelection.ejs', { result })
+                res.render('menuSelection.ejs', { menus })
             })
             .catch(err => [
                 res.send(err)
