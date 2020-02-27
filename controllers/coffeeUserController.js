@@ -1,4 +1,4 @@
-const { CoffeeUser, Coffee, Inventory } = require ("../models/index.js")
+const { CoffeeUser, Coffee, Inventory, User } = require ("../models/index.js")
 const getRupiah = require('../helper/getRupiah')
 
 class CoffeeUserController {
@@ -16,7 +16,8 @@ class CoffeeUserController {
 
     static completedOrder(req, res) {
         let session = req.session
-        CoffeeUser.findAll({where: {"isReady": false}})
+        let coffeeUser = null;
+        CoffeeUser.findAll({where: {"isReady": false}, include: [User]})
             .then(result => {
                 res.render('coffeeUser/coffeeUser.ejs', {result, session})
             })
@@ -108,6 +109,7 @@ class CoffeeUserController {
                 res.redirect('back')
             })
             .catch(err => {
+                console.log(err);
                 res.send(err)
             })
     }
@@ -140,13 +142,14 @@ class CoffeeUserController {
                         let sugar = result[0].Coffee.sugar
                         return Inventory.decrement({espresso, milk, ice, cup, sugar}, {where: {id: 1}})
                     })
-
+                    .then(()=> {
+                        let id = +req.session.loginId
+                        return User.increment('purchaseToReward', {where: {id}})
+                    })
                     .then(updated => {
                         res.redirect('back')
                     })
-
                     .catch(err => {
-                        console.log(err);
                         res.send(err)
                     })
             })
@@ -155,7 +158,7 @@ class CoffeeUserController {
     static report(req, res) {
         let session = req.session;
 
-        CoffeeUser.findAll({where: {"isReady": true}})
+        CoffeeUser.findAll({where: {"isReady": true}, include:[User]})
             .then(result => {
                 CoffeeUser.sum("price", {where: {"isReady": true}})
                     .then(sales => {
