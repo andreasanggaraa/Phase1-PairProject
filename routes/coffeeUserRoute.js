@@ -1,7 +1,8 @@
 const coffeeUserRoute = require("express").Router()
 const CoffeeUserController = require ("../controllers/coffeeUserController")
 
-coffeeUserRoute.get("/orderlist",CoffeeUserController.findAll)
+coffeeUserRoute.get("/orderlist", CoffeeUserController.findAll)
+coffeeUserRoute.get("/order", CoffeeUserController.orderLanding)
 
 module.exports = coffeeUserRoute
 

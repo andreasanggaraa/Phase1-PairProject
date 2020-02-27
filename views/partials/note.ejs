@@ -1,0 +1,6 @@
+<%= !msg ? "Welcome, Guest" : msg %> &emsp;
+<% if (isLogin) { %>
+  <button><a href="/logout">Logout</a></button> 
+<% } else { %>
+<button><a href="/login">Login</a></button>  
+<% } %> 

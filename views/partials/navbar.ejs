@@ -8,31 +8,30 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item <%= page === "index" ? "active" : "" %>">
-            <a class="nav-link" href="/">Home</a>
-          </li>    
-          <li class="nav-item <%= page === "movie" ? "active" : "" %>">
-            <a class="nav-link" href="/movie">Movie</a>
+          <li class="nav-item" >
+            <a class="nav-link" href="/">Order</a>
           </li>
-          <li class="nav-item <%= page === "productionHouse" ? "active" : "" %>">
-            <a class="nav-link" href="/ph">Production House</a>
+
+          <% if (session.role === "admin") { %> 
+          <li class="nav-item">
+            <a class="nav-link" href="/orderList">Order List</a>
           </li>
-          <li class="nav-item <%= page === "cast" ? "active" : "" %>">
-            <a class="nav-link" href="/cast">Cast</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/inventory">Inventory</a>
           </li>
+          <% } %>
+
         </ul>
       </div>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <%= !msg ? "Welcome, Guest" : msg %> &emsp;
-        <% if (isLogin) { %>
-          <button><a href="/logout">Logout</a></button> 
-        <% } else { %>
-        <button><a href="/login">Login</a></button>  
-        <% } %> 
+        <%= !session.msg ? "Welcome, Guest" : session.msg %> &emsp;
+          <% if (session.isLogin) { %>
+            <button><a href="/logout">Logout</a></button> 
+          <% } else { %>
+           <button><a href="/login">Login</a></button>  
+          <% } %> 
       </div>
 
     </div>
-
-
   </nav>

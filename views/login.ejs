@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
-    <%- include('partials/bootstrap-head.ejs'); %>
+    <%- include('partials/bootstrap-head.ejs') %>
 </head>
 <body>
-    <%- include('partials/navbar.ejs', {page: "index"}) %>
+    <%- include('partials/navbar.ejs') %>
+
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+        <div align="center" class="container">
           <h1 class="display-4">Silakan login terlebih dahulu</h1>
         </div>
 
@@ -24,7 +25,9 @@
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
+      </div>
+      <div align="center">
+        Belum punya Account? Silakan daftar <a href="/register">DISINI</a>
       </div>
     <%- include('partials/bootstrap-script.ejs'); %>
 </body>
