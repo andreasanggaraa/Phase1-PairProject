@@ -3,12 +3,14 @@ const { Inventory } = require('../models/index.js')
 class InventoryController {
 
     static dashboard(req, res) {
+        let session = req.session
         Inventory.findAll()
-            .then(Inventories => {
-                res.send(Inventories)
+            .then(inventories => {
+                // res.send(inventories)
+                res.render('inventory/inventories.ejs', {inventories, session})
             })
             .catch(err => {
-                res.send(Inventories)
+                res.send(err)
             })
     }
     
