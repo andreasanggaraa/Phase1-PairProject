@@ -7,7 +7,33 @@
     <style>
 
       table th {background-color: #55efc4;}
-
+      #edit-button {
+        background-color: #0984e3;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 3px;
+      }
+      #delete-button{
+        background-color: #f44336;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 3px
+      }
+      #redeem-button{
+        background-color: #2ecc71;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 3px
+      }
     </style>
 </head>
 
@@ -28,9 +54,9 @@
                 <td><%= users[i].fullName %> </td>
                 <td><%= users[i].purchaseToReward %> </td>
                 <td>
-                  <a href="/edit/<%= users[i].id %>"> Edit  </a> |
-                  <a href="/delete/<%= users[i].id %>"> Delete  </a> |
-                  <a href='/redeem/<%= users[i].id %>'> <%= users[i].purchaseToReward >= 10 ? "Redeem" : "" %>  </a>
+                  <a href="/edit/<%= users[i].id %>" id="edit-button"> Edit  </a>
+                  <a href="/delete/<%= users[i].id %>" id="delete-button"> Delete  </a>
+                  <a href='/redeem/<%= users[i].id %>' id="redeem-button"> <%= users[i].purchaseToReward >= 10 ? "Redeem" : "" %> Redeem </a>
 
                 </td>
               </tr>

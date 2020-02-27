@@ -47,6 +47,24 @@
           display: inline-block;
           border-radius: 3px
         }
+        #prepare-button{
+          background-color: #f9ca24;
+          color: black;
+          padding: 10px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          border-radius: 3px
+        }
+        #serve-button{
+          background-color: #00b894;
+          color: white;
+          padding: 10px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          border-radius: 3px
+        }
 
     </style>
 </head>
@@ -74,9 +92,9 @@
               <% if (!result[i].isAccepted) { %>
                 <a href="/orderList/<%= result[i].id %>/accept" id="accept-button">Accept</a>
               <% } else if (!result[i].isPrepared) { %>
-                <a href="/orderList/<%= result[i].id %>/prepare">Prepare</a>
+                <a href="/orderList/<%= result[i].id %>/prepare" id="prepare-button">Prepare</a>
               <% } else if (!result[i].isReady) { %>
-                <a href="/orderList/<%= result[i].id %>/serve">Serve</a>
+                <a href="/orderList/<%= result[i].id %>/serve" id="serve-button">Serve</a>
               <% } else { %>
                 <a>Order Completed</a>   
               <% } %>
