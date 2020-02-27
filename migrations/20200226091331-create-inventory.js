@@ -8,11 +8,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      stockName: {
-        type: Sequelize.STRING
+      espresso: {
+        type: Sequelize.INTEGER
       },
-      quantity: {
-        type: Sequelize.FLOAT
+      milk: {
+        type: Sequelize.INTEGER
+      },
+      ice: {
+        type: Sequelize.INTEGER
+      },
+      cup: {
+        type: Sequelize.INTEGER
+      },
+      sugar: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

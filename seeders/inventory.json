@@ -1,22 +1,10 @@
 [
     {
-        "stockName": "espresso",
-        "quantity": 250
-    },
-    {
-        "stockName": "ice",
-        "quantity": 250
-    },
-    {
-        "stockName": "cup",
-        "quantity": 250
-    },
-    {
-        "stockName": "sugar",
-        "quantity": 250
-    },
-    {
-        "stockName": "milk",
-        "quantity": 250
+        "espresso": 250,
+        "milk": 250,
+        "ice": 250,
+        "cup": 250,
+        "sugar": 250
+
     }
 ]

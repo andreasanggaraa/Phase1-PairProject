@@ -7,6 +7,7 @@ class InventoryController {
         
         Inventory.findAll()
             .then(inventories => {
+                console.log(inventories[0].dataValues);
                 res.render('inventory/inventories.ejs', {inventories, session})
             })
             .catch(err => {

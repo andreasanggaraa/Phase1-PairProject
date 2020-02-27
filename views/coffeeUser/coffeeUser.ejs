@@ -37,17 +37,27 @@
             <td>No.</td>
             <td>Customer</td>
             <td>Order</td>
+            <td>Status</td>
             <td>Price</td>
             <td>Action</td>
         </tr>
         <% for(i = 0; i < result.length; i++) { %> 
         <tr>
-            <td><%= i %></td>
+            <td><%= i+1 %></td>
+            <td>Nama</td>
             <td><%= result[i]["order"] %></td>
-            <td><%= result[i]["status"] %></td>
+            <td><%= result[i].getStatus() %></td>
             <td><%= result[i]["price"] %></td>
             <td>
-                <a href="/hackoffee/orderlist/delete/<%= result[i]["id"] %>" onclick="return confirm('Are you sure you want to delete this order?')">Delete order</a>
+              <% if (!result[i].isAccepted) { %>
+                <a href="/orderList/<%= result[i].id %>/accept">Accept</a>
+              <% } else if (!result[i].isPrepared) { %>
+                <a href="/orderList/<%= result[i].id %>/prepare">Prepare</a>
+              <% } else if (!result[i].isReady) { %>
+                <a href="/orderList/<%= result[i].id %>/serve">Serve</a>
+              <% } %>
+              &emsp;
+              <a href="orderlist/<%= result[i].id %>/remove" onclick="return confirm('Are you sure you want to delete this order?')">Remove</a>
             </td>
         </tr>
       <% } %> 
