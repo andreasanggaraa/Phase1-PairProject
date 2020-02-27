@@ -1,7 +1,10 @@
 const router = require ("express").Router()
 const coffeeUserRoute = require ("./coffeeUserRoute")
+const coffeeRoute = require ("./coffeeRoute")
 
 router.use('/hackoffee', coffeeUserRoute)
+
+router.use('/coffee', coffeeRoute)
 
 module.exports = router
 

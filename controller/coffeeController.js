@@ -1,21 +1,21 @@
-const CoffeeUser = require ("../models").CoffeeUser
+const Coffee = require ("../models").Coffee
 
-class CoffeeUserController {
+class CoffeeController {
     //Jangan sampai nama const dan class sama
     static findAll(req,res){
-        CoffeeUser.findAll()
+        Coffee.findAll()
         .then(function(result){
-            console.log(result)
-            res.render("CoffeeUser.ejs", { coffeeUserData : result})
+            // console.log(result)
+            res.render("Coffee.ejs", { coffeeData : result})
         })
         .catch(function(err){
             res.send(err)
         })
     }
     static addForm(req,res) {
-        CoffeeUser.findAll()
+        Coffee.findAll()
         .then(function(result){
-            res.render("movieAdd.ejs", { CoffeeUserData : result })
+            res.render("CoffeeAdd.ejs", { CoffeeData : result })
         })
         .catch(function(err){
             res.send(err)
@@ -34,7 +34,6 @@ class CoffeeUserController {
             res.send(err)
         })
     }
-
 }
 
-module.exports = CoffeeUserController
+module.exports = CoffeeController

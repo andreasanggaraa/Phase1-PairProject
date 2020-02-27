@@ -3,6 +3,9 @@ const CoffeeUserController = require ("../controller/coffeeUserController")
 
 coffeeUserRoute.get("/orderlist",CoffeeUserController.findAll)
 
+coffeeUserRoute.get('/orderlist/add', CoffeeUserController.addForm)
+coffeeUserRoute.post('/orderlist/add', CoffeeUserController.createNewEntry)
+
 module.exports = coffeeUserRoute
 
 // =========================================================
