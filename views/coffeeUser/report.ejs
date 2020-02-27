@@ -30,14 +30,19 @@
 </head>
 <body>
   <%- include('../partials/navbar.ejs') %>
-    <h2>Today's Coffee Order</h2>
+  <div align="center">
+      <h1>Report</h1>
+  
+      <h3>Total Sales: <%= sales %> </h3>
+
+  </div>  
+    
 
     <table align="center">
         <tr>
             <td>No.</td>
             <td>Customer</td>
             <td>Order</td>
-            <td>Status</td>
             <td>Price</td>
             <td>Action</td>
         </tr>
@@ -46,7 +51,6 @@
             <td><%= i+1 %></td>
             <td>Nama</td>
             <td><%= result[i]["order"] %></td>
-            <td><%= result[i].getStatus() %></td>
             <td><%= result[i]["price"] %></td>
             <td>
               <% if (!result[i].isAccepted) { %>

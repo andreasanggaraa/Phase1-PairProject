@@ -1,10 +1,22 @@
 const { CoffeeUser, Coffee, Inventory } = require ("../models/index.js")
+const getRupiah = require('../helper/getRupiah')
 
 class CoffeeUserController {
 
     static findAll(req,res){
         let session = req.session
         CoffeeUser.findAll({include: [Coffee]})
+            .then(result => {
+                res.render('coffeeUser/coffee,rupiah.length-1User.ejs', {result, session})
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
+    static completedOrder(req, res) {
+        let session = req.session
+        CoffeeUser.findAll({where: {"isReady": false}})
             .then(result => {
                 res.render('coffeeUser/coffeeUser.ejs', {result, session})
             })
@@ -137,6 +149,22 @@ class CoffeeUserController {
                         console.log(err);
                         res.send(err)
                     })
+            })
+    }
+
+    static report(req, res) {
+        let session = req.session;
+
+        CoffeeUser.findAll({where: {"isReady": true}})
+            .then(result => {
+                CoffeeUser.sum("price", {where: {"isReady": true}})
+                    .then(sales => {
+                        sales = getRupiah(sales)
+                        res.render('coffeeUser/report.ejs', {result, session, sales})
+                    })
+            })
+            .catch(err => {
+                res.send(err)
             })
     }
 }
