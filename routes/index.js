@@ -13,6 +13,7 @@ const CoffeeController = require('../controllers/CoffeeController.js')
 
 router.get('/', (req, res) => {
     let session = req.session;
+
     res.render('index.ejs', { session });
 })
 
@@ -29,7 +30,7 @@ router.get('/login', (req, res) => {
 router.post('/login', LoginController.login)
 
 // Need authentication first
-// router.use(authentication)
+router.use(authentication)
 router.get('/logout', LoginController.logout)
 
 // Admin

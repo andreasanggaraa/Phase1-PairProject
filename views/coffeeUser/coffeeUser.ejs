@@ -34,17 +34,15 @@
 
     <table align="center">
         <tr>
-            <td>userId</td>
-            <td>coffeeId</td>
-            <td>Customer Name</td>
+            <td>No.</td>
+            <td>Customer</td>
             <td>Order</td>
             <td>Price</td>
             <td>Action</td>
         </tr>
         <% for(i = 0; i < result.length; i++) { %> 
         <tr>
-            <td><%= result[i]["UserId"] %></td>
-            <td><%= result[i]["CoffeeId"] %></td>
+            <td><%= i %></td>
             <td><%= result[i]["order"] %></td>
             <td><%= result[i]["status"] %></td>
             <td><%= result[i]["price"] %></td>
