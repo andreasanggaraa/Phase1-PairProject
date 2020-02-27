@@ -14,14 +14,8 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      firstName: {
+      fullName: {
         type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      birthday: {
-        type: Sequelize.DATEONLY
       },
       freecup: {
         type: Sequelize.INTEGER

@@ -29,11 +29,20 @@ module.exports = {
       order: {
         type: Sequelize.STRING
       },
-      status: {
-        type: Sequelize.STRING
+      isAccepted: {
+        type: Sequelize.BOOLEAN
+      },
+      isPrepared: {
+        type: Sequelize.BOOLEAN
+      },
+      isReady: {
+        type: Sequelize.BOOLEAN
       },
       price: {
         type: Sequelize.INTEGER
+      },
+      status: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

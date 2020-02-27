@@ -1,53 +1,52 @@
 const { CoffeeUser, Coffee } = require ("../models/index.js")
 
 class CoffeeUserController {
+
     static findAll(req,res){
-        CoffeeUser.findAll()
-        .then(function(result){
-            console.log(result)
-            res.render("coffeeUser/coffeeUser.ejs", { coffeeUserData : result})
-        })
-        .catch(function(err){
-            res.send(err)
-        })
+        let session = req.session
+        CoffeeUser.findAll({include: [Coffee]})
+            .then(result => {
+                res.render('coffeeUser/coffeeUser.ejs', {result, session})
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 
     static addForm(req,res) {
         Coffee.findAll()
-<<<<<<< HEAD
             .then(menus => {
-                res.render('menuSelection.ejs', { menus })
+                let session = req.session
+                res.render('menuSelection.ejs', { menus, session })
             })
             .catch(err => [
                 res.send(err)
             ])
-=======
-        .then (function(menus){            
-            res.render('menuSelection.ejs', { menus : menus })
-        })
-        .catch (function(err){
-            res.send(err)
-        })
->>>>>>> 3e52b0214bdd8dab53aa79d3a26a830596bd99e0
     }
 
     static createNewEntry(req,res) {
-        CoffeeUser.create({
-            UserId : req.body.UserId,
-            CoffeeId : req.body.CoffeeId,
-            order: "TKTK",
-            status: "TKTK",
-            price: 17000
-        })
-        .then (function(result){
-            // console.log("============")
-            // console.log(result)
-            res.redirect("/hackoffee/orderlist")
-        })
-        .catch (function(err){
-            res.send(err)
-        })
+        req.body.createdAt = new Date()
+        req.body.updatedAt = new Date()
+        req.body.UserId = req.session.loginId
+        let id = +req.body.CoffeeId
+        Coffee.findByPk(id)
+            .then(searched => {
+                searched.getStatus
+                console.log(searched);
+                req.body.order = searched.name
+                req.body.price = +searched.sellingPrice
+
+                CoffeeUser.create(req.body)
+                    .then(newOrder => {
+                        res.redirect('/purchase')
+                    })
+            })
+
+            .catch(err => {
+                res.send(err)
+            })
     }
+
     static updateForm(req,res){
         //an alternative would be to use findbypk
         CoffeeUser.findAll({
@@ -62,39 +61,19 @@ class CoffeeUserController {
             res.send(err)
         })
     }
-    static updateCoffeeUserData(req,res){
-        CoffeeUser.update({
-            //pakai req.body untuk ambil hasil form sebelumnya
-            userId : req.body.name,
-            CoffeeId : req.body.released_year,
-            order: req.body.genre,
-            status: "TKTK",
-            price: "TKTK"
-            }, { where: 
-                {
-                    id : req.params.id
-                }
+
+
+    static orderById(req, res) {
+        let id = +req.session.loginId;
+        let session = req.session;
+
+        CoffeeUser.findAll({where : {"UserId": id}})
+            .then(result => {
+                res.render('coffeeUser/purchase.ejs', { result, session })
             })
-        .then(function(result){
-            res.redirect("/hackoffee/orderlist")
-        })
-        .catch(function(err){s
-            res.send(err)
-        })
-    }
-    static deleteCoffeeUser(req,res){
-        CoffeeUser.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-        //also a promise, need then and catch
-        .then (function(result){
-            res.redirect("/hackoffee/orderlist")
-        })
-        .catch(function(err){
-            res.send(err)
-        })
+            .catch(err => {
+                res.send(err)
+            })
     }
 }
 

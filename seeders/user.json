@@ -1,9 +1,8 @@
 [
     {
         "username": "ace",
-        "password": "ace123",
-        "firstName": "Andreas",
-        "lastName": "Anggara",
+        "password": "1",
+        "fullName": "Andreas Anggara",
         "freecup": 1,
         "purchaseToReward": 8,
         "role": "customer"
@@ -11,8 +10,7 @@
     {
         "username": "andre",
         "password": "andre123",
-        "firstName": "Andre",
-        "lastName": "Gunawan",
+        "fullName": "Andre Gunawan",
         "freecup": 0,
         "purchaseToReward": 0,
         "role": "admin"
