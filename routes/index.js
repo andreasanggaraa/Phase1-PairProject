@@ -31,6 +31,7 @@ router.get('/order', coffeeUserRoute)
 
 router.post('/login', LoginController.login)
 router.get('/logout', LoginController.logout)
+
 router.use('/hackoffee', coffeeUserRoute)
 router.use('/user', userRouter)
 router.use('/coffee', coffeeRouter)

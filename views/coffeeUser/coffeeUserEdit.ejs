@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" action="/coffeeUser/update/<%= selectedCoffeeUser[0]["id"] %>">
+        <label for="UserId">userId</label><br>
+        <input type="text" id="UserId" name="UserId"><br>
+
+        <label for="CoffeeId">CoffeeId</label><br>
+        <input type="text" id="CoffeeId" name="CoffeeId"><br>
+  
+        <input type="submit" value="Edit Order Data">
+
+      </form>
+</body>
+</html>
