@@ -65,7 +65,7 @@ class CoffeeUserController {
                 }
             })
         .then(function(result){
-            res.redirect("/orderlist")
+            res.redirect("/hackoffee/orderlist")
         })
         .catch(function(err){s
             res.send(err)
@@ -79,7 +79,7 @@ class CoffeeUserController {
         })
         //also a promise, need then and catch
         .then (function(result){
-            res.redirect("/orderlist")
+            res.redirect("/hackoffee/orderlist")
         })
         .catch(function(err){
             res.send(err)

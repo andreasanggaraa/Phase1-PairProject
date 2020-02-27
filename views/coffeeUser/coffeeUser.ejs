@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        h2{
+          font-family: Calibri;
+          text-align: center;
+        }
+
         table {
           font-family: arial, sans-serif;
           border-collapse: collapse;
-          width: 100%;
+          width: 80%;
         }
         
         td, th {
@@ -25,13 +30,14 @@
 <body>
     <h2>Today's Coffee Order</h2>
 
-    <table>
+    <table align="center">
         <tr>
             <td>userId</td>
             <td>coffeeId</td>
             <td>Customer Name</td>
             <td>Order</td>
             <td>Price</td>
+            <td>Action</td>
         </tr>
         <% for(i = 0; i < coffeeUserData.length; i++) { %> 
         <tr>
@@ -40,6 +46,9 @@
             <td><%= coffeeUserData[i]["order"] %></td>
             <td><%= coffeeUserData[i]["status"] %></td>
             <td><%= coffeeUserData[i]["price"] %></td>
+            <td>
+                <a href="/hackoffee/orderlist/delete/<%= coffeeUserData[i]["id"] %>" onclick="return confirm('Are you sure you want to delete this order?')">Delete order</a>
+            </td>
         </tr>
       <% } %> 
     </table>
