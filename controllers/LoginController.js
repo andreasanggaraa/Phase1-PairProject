@@ -15,6 +15,7 @@ class LoginController {
                     logged[0].role === "admin" ? req.session.role = "admin" : req.session.role = "customer";
                     req.session.msg = `Welcome, ${logged[0].username}`;
                     req.session.isLogin = true;
+                    req.session.loginId = logged[0].dataValues.id
                     res.redirect('/');
                 }
                 else {
@@ -29,7 +30,7 @@ class LoginController {
 
     static logout(req, res) {
         req.session.destroy()
-        res.redirect('back')
+        res.redirect('/')
     }
 
 }

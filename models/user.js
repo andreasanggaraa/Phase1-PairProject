@@ -6,13 +6,17 @@ module.exports = (sequelize, DataTypes) => {
     User.init({
       username: DataTypes.STRING,
       password: DataTypes.STRING,
-      firstName: DataTypes.STRING,
-      lastName: DataTypes.STRING,
+      fullName: DataTypes.STRING,
       freecup: DataTypes.INTEGER,
       purchaseToReward: DataTypes.STRING,
       role: DataTypes.STRING
     },
     {
+      hooks: {
+        beforeCreate: (User, options) => {
+          User.role = "customer"
+        }
+      },
       sequelize
     })
 

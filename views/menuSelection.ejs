@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Selection</title>
-    <%- include('../partials/bootstrap-head.ejs'); %>
+    <%- include('./partials/bootstrap-head.ejs'); %>
     <style>
         #menu-selection{
             display:flex;
@@ -18,37 +18,22 @@
     </style>
 </head>
 <body>
-    <%- include('../partials/navbar.ejs') %>
+    <%- include('./partials/navbar.ejs') %>
 
-    <h1>Please choose your coffee!</h1>
-    
-    <div id="menu-selection">
-        <% for (i = 0; i < menus.length; i++) { %> 
-        <div id="coffee-menu-1">
-            <h3><%= menus[[i]["name"] %></h3>
-            <!-- <h3>Americano</h3>    -->
-            <form method = "POST" action="/TKTK.php">
-                <label for="sugar">Sugar Cubes:</label><br>
-                <select id="sugar" name="sugar">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select><br><br>
+    <form method="POST" action="/order" align="center" style="margin-left: 35%;margin-right: 35%;">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Please choose your coffee</label>
+            <select class="form-control" name="CoffeeId" id="CoffeeId">
+                <% for( let i = 0; i < menus.length; i++ ) { %>
+                    <option value="<%= menus[i].id %>"><%= menus[i].name %> </option>
+                <% } %>
 
-                <label for="ice">Ice:</label><br>
-                <select id="ice" name="ice">
-                  <option value="1">Less</option>
-                  <option value="2" selected>Medium</option>
-                  <option value="3" >More</option>
-                </select><br><br>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">ORDER NOW</button>
+      </form>
+ 
 
-                <input type="submit">
-            </form>
-        </div>
-        <% } %> 
-    </div>  
-
-    <%- include('../partials/bootstrap-script.ejs'); %>
+    <%- include('./partials/bootstrap-script.ejs'); %>
 </body>
 </html>

@@ -8,7 +8,6 @@ class CoffeeController {
                 let session = req.session 
                 res.render('coffee/coffees.ejs', { menus, session })
             })
-
             .catch(err => {
                 res.send(err)
             })
