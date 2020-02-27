@@ -2,13 +2,15 @@ const { Coffee } = require('../models/index.js')
 
 class CoffeeController {
 
-    static dashboard(req, res) {
+    static findAll(req, res) {
         Coffee.findAll()
-            .then(menu => {
-                res.send(menu)
+            .then(menus => {
+                let session = req.session 
+                res.render('coffee/coffees.ejs', { menus, session })
             })
+
             .catch(err => {
-                res.send(menu)
+                res.send(err)
             })
     }
 

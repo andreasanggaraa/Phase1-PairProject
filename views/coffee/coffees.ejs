@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <%- include('../partials/bootstrap-head.ejs'); %>
+</head>
+
+<body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <table class="table table-striped" style="width:85%;margin-top: 50px;" align="center">
+        <tr>
+          <th>#</th>
+          <th>Menu</th> 
+          <th>Price</th>
+        </tr>
+        <% for( let i = 0; i < menus.length; i++ ) { %>
+            <tr>
+                <td><%= menus[i].id %> </td>
+                <td><%= menus[i].name %> </td>
+                <td><%= menus[i].sellingPrice %> </td>
+              </tr>
+        <% } %>
+      </table>
+
+<%- include('../partials/bootstrap-script.ejs'); %>
+</body>
+
+</html>
