@@ -14,12 +14,21 @@ class CoffeeUserController {
 
     static addForm(req,res) {
         Coffee.findAll()
+<<<<<<< HEAD
             .then(menus => {
                 res.render('menuSelection.ejs', { menus })
             })
             .catch(err => [
                 res.send(err)
             ])
+=======
+        .then (function(menus){            
+            res.render('menuSelection.ejs', { menus : menus })
+        })
+        .catch (function(err){
+            res.send(err)
+        })
+>>>>>>> 3e52b0214bdd8dab53aa79d3a26a830596bd99e0
     }
 
     static createNewEntry(req,res) {
@@ -67,7 +76,7 @@ class CoffeeUserController {
                 }
             })
         .then(function(result){
-            res.redirect("/orderlist")
+            res.redirect("/hackoffee/orderlist")
         })
         .catch(function(err){s
             res.send(err)
@@ -81,7 +90,7 @@ class CoffeeUserController {
         })
         //also a promise, need then and catch
         .then (function(result){
-            res.redirect("/orderlist")
+            res.redirect("/hackoffee/orderlist")
         })
         .catch(function(err){
             res.send(err)

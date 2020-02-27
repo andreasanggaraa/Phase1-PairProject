@@ -6,8 +6,8 @@ coffeeUserRoute.get("/orderlist", CoffeeUserController.findAll)
 coffeeUserRoute.get('/orderlist/add', CoffeeUserController.addForm)
 coffeeUserRoute.post('/orderlist/add', CoffeeUserController.createNewEntry)
 
-coffeeUserRoute.get('/orderlist/update/:id', CoffeeUserController.updateForm)
-coffeeUserRoute.post('/orderlist/update/:id', CoffeeUserController.updateCoffeeUserData)
+// coffeeUserRoute.get('/orderlist/update/:id', CoffeeUserController.updateForm)
+// coffeeUserRoute.post('/orderlist/update/:id', CoffeeUserController.updateCoffeeUserData)
 
 coffeeUserRoute.get('/orderlist/delete/:id', CoffeeUserController.deleteCoffeeUser)
 

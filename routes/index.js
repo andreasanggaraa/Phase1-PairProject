@@ -1,5 +1,5 @@
 const router = require ("express").Router()
-// const coffeeUserRoute = require ("./coffeeUserRoute")
+const coffeeUserRoute = require ("./coffeeUserRoute")
 // const userRouter = require('./UserRouter.js')
 // const coffeeRouter = require('./CoffeeRouter.js')
 // const inventoryRouter = require('./InventoryRouter.js')
@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
 router.post('/login', LoginController.login)
 
 // Need authentication first
-router.use(authentication)
+// router.use(authentication)
 router.get('/logout', LoginController.logout)
 
 // Admin
@@ -38,7 +38,7 @@ router.use('/inventory', InventoryController.findAll)
 router.get('/orderlist', CoffeeUserController.findAll)
 router.get('/menu', CoffeeController.findAll)
 
-// router.use('/hackoffee', coffeeUserRoute)
+router.use('/hackoffee', coffeeUserRoute)
 
 
 module.exports = router;
