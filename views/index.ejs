@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <%- include('partials/bootstrap-head.ejs'); %>
+</head>
+<body>
+    <%- include('partials/navbar.ejs', {page: "index"}) %>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Selamat datang di MovieApp</h1>
+          <p class="lead">Silakan pilih menu pada Navbar di atas!</p>
+        </div>
+      </div>
+    <%- include('partials/bootstrap-script.ejs'); %>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex ">
+    <a class="navbar-brand" href="/"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex justify-content-between flex-grow-1">
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <%= page === "index" ? "active" : "" %>">
+            <a class="nav-link" href="/">Home</a>
+          </li>    
+          <li class="nav-item <%= page === "movie" ? "active" : "" %>">
+            <a class="nav-link" href="/movie">Movie</a>
+          </li>
+          <li class="nav-item <%= page === "productionHouse" ? "active" : "" %>">
+            <a class="nav-link" href="/ph">Production House</a>
+          </li>
+          <li class="nav-item <%= page === "cast" ? "active" : "" %>">
+            <a class="nav-link" href="/cast">Cast</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <%= !msg ? "Welcome, Guest" : msg %> &emsp;
+        <% if (isLogin) { %>
+          <button><a href="/logout">Logout</a></button> 
+        <% } else { %>
+        <button><a href="/login">Login</a></button>  
+        <% } %> 
+      </div>
+
+    </div>
+
+
+  </nav>
