@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Selection</title>
+    <%- include('../partials/bootstrap-head.ejs'); %>
+    <style>
+        #menu-selection{
+            display:flex;
+            flex-direction: column;
+        }
+
+        h2{
+          font-family: Calibri;
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <h1>Please choose your coffee!</h1>
+    
+    <div id="menu-selection">
+        <!-- < for (i = 0; i <TKTK.length; i++) { >  -->
+        <div id="coffee-menu-1">
+            <!-- <h2><= TKTK[[i]["name"] ></h2> -->
+            <h3>Americano</h3>   
+            <form method = "POST" action="/TKTK.php">
+                <label for="sugar">Sugar Cubes:</label><br>
+                <select id="sugar" name="sugar">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select><br><br>
+
+                <label for="ice">Ice:</label><br>
+                <select id="ice" name="ice">
+                  <option value="1">Less</option>
+                  <option value="2" selected>Medium</option>
+                  <option value="3" >More</option>
+                </select><br><br>
+
+                <input type="submit">
+            </form>
+        </div>
+
+        <div id="coffee-menu-2">
+            <!-- <h2><= TKTK[[i]["name"] ></h2> -->
+            <h3>Caffe Latte</h3>   
+            <form method = "POST" action="/TKTK.php">
+                <label for="sugar">Sugar Cubes:</label><br>
+                <select id="sugar" name="sugar">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select><br><br>
+
+                <label for="ice">Ice:</label><br>
+                <select id="ice" name="ice">
+                  <option value="1">Less</option>
+                  <option value="2" selected>Medium</option>
+                  <option value="3" >More</option>
+                </select><br><br>
+
+                <input type="submit">
+            </form>
+        </div>
+
+
+        <!-- < } >  -->
+    </div>  
+
+    <%- include('../partials/bootstrap-script.ejs'); %>
+</body>
+</html>

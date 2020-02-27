@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <%- include('../partials/bootstrap-head.ejs'); %>
     <style>
         h2{
           font-family: Calibri;
@@ -28,6 +29,7 @@
     </style>
 </head>
 <body>
+  <%- include('../partials/navbar.ejs') %>
     <h2>Today's Coffee Order</h2>
 
     <table align="center">
@@ -52,6 +54,6 @@
         </tr>
       <% } %> 
     </table>
-
+    <%- include('../partials/bootstrap-script.ejs'); %>
 </body>
 </html>
