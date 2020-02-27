@@ -6,32 +6,65 @@
     <title>Menu Selection</title>
     <%- include('./partials/bootstrap-head.ejs'); %>
     <style>
-        #menu-selection{
+
+        #coffee-selections{
             display:flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #coffee-1 {
+            width:40vw;
+            height:40vw
+            /* height:550px */
+        }
+
+        #coffee-2 {
+            width:40vw;
+            /* height:40 w */
+            /* height:550px */
         }
 
         h2{
           font-family: Calibri;
           text-align: center;
         }
+
+        label {
+            font-size: 32px;
+            display: block;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            width : 450px
+        }
+
     </style>
 </head>
 <body>
     <%- include('./partials/navbar.ejs') %>
-
     <form method="POST" action="/order" align="center" style="margin-left: 35%;margin-right: 35%;">
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Please choose your coffee</label>
+            <label for="exampleFormControlSelect1">Please choose your coffee!</label>
+                <div id="coffee-selections">
+                    <img src="assets/coffee-1-americano.jpg" alt="coffee-1-americano" id="coffee-1">
+                    <img src="assets/coffee-2-caffe-latte.jpg" alt="coffee-2-caffe-latte" id="coffee-2">
+                </div>
             <select class="form-control" name="CoffeeId" id="CoffeeId">
                 <% for( let i = 0; i < menus.length; i++ ) { %>
-                    <option value="<%= menus[i].id %>"><%= menus[i].name %> </option>
+                    <option value="<%= menus[i].id %>" id="menu-option" ><%= menus[i].name %></option>
                 <% } %>
 
+                <div class="container">
+                    <img src="img_snow.jpg" alt="Snow">
+                    <button class="btn">Button</button>
+                </div>
             </select>
-          </div>
-          <button type="submit" class="btn btn-primary">ORDER NOW</button>
-      </form>
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">ORDER NOW</button>
+    </form>
  
 
     <%- include('./partials/bootstrap-script.ejs'); %>

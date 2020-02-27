@@ -23,8 +23,11 @@
           padding: 8px;
         }
         
-        tr:nth-child(even) {
+        tr:nth-child(odd) {
           background-color: #dddddd;
+        }
+        th{
+          background-color: #55efc4
         }
     </style>
 </head>
@@ -34,11 +37,11 @@
 
     <table align="center">
         <tr>
-            <td>No.</td>
-            <td>Customer</td>
-            <td>Order</td>
-            <td>Price</td>
-            <td>Action</td>
+            <th>No.</th>
+            <th>Customer</th>
+            <th>Order</th>
+            <th>Price</th>
+            <th>Action</th>
         </tr>
         <% for(i = 0; i < result.length; i++) { %> 
         <tr>

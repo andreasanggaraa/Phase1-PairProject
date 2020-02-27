@@ -10,7 +10,6 @@ const InventoryController = require('../controllers/InventoryController')
 const CoffeeUserController = require('../controllers/coffeeUserController.js')
 const CoffeeController = require('../controllers/CoffeeController.js')
 
-
 router.get('/', (req, res) => {
     let session = req.session;
 
