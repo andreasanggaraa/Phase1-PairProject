@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       purchaseToReward: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       role: {
         type: Sequelize.STRING

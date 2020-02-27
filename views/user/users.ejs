@@ -26,8 +26,13 @@
             <tr>
                 <td><%= users[i].id %> </td>
                 <td><%= users[i].fullName %> </td>
-                <td><%= users[i].freecup %> </td>
-                <td> Redeem </td>
+                <td><%= users[i].purchaseToReward %> </td>
+                <td>
+                  <a href="/edit/<%= users[i].id %>"> Edit  </a> |
+                  <a href="/delete/<%= users[i].id %>"> Delete  </a> |
+                  <a href='/redeem/<%= users[i].id %>'> <%= users[i].purchaseToReward >= 10 ? "Redeem" : "" %>  </a>
+
+                </td>
               </tr>
         <% } %>
       </table>

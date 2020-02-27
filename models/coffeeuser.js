@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 
     getStatus() {
       if(this.isReady){
-        return "Your coffee is ready"
+        return "Your order is completed, thanks for ordering!"
       }
       else if (this.isPrepared) {
         return "Your coffee is being prepared"

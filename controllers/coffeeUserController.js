@@ -1,4 +1,4 @@
-const { CoffeeUser, Coffee, Inventory } = require ("../models/index.js")
+const { CoffeeUser, Coffee, Inventory, User } = require ("../models/index.js")
 const getRupiah = require('../helper/getRupiah')
 
 class CoffeeUserController {
@@ -16,7 +16,8 @@ class CoffeeUserController {
 
     static completedOrder(req, res) {
         let session = req.session
-        CoffeeUser.findAll({where: {"isReady": false}})
+        let coffeeUser = null;
+        CoffeeUser.findAll({where: {"isReady": false}, include: [User]})
             .then(result => {
                 res.render('coffeeUser/coffeeUser.ejs', {result, session})
             })
@@ -108,6 +109,7 @@ class CoffeeUserController {
                 res.redirect('back')
             })
             .catch(err => {
+                console.log(err);
                 res.send(err)
             })
     }
@@ -140,13 +142,14 @@ class CoffeeUserController {
                         let sugar = result[0].Coffee.sugar
                         return Inventory.decrement({espresso, milk, ice, cup, sugar}, {where: {id: 1}})
                     })
-
+                    .then(()=> {
+                        let id = +req.session.loginId
+                        return User.increment('purchaseToReward', {where: {id}})
+                    })
                     .then(updated => {
                         res.redirect('back')
                     })
-
                     .catch(err => {
-                        console.log(err);
                         res.send(err)
                     })
             })
@@ -155,13 +158,35 @@ class CoffeeUserController {
     static report(req, res) {
         let session = req.session;
 
-        CoffeeUser.findAll({where: {"isReady": true}})
+        CoffeeUser.findAll({where: {"isReady": true}, include:[User]})
             .then(result => {
                 CoffeeUser.sum("price", {where: {"isReady": true}})
                     .then(sales => {
                         sales = getRupiah(sales)
                         res.render('coffeeUser/report.ejs', {result, session, sales})
                     })
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
+    static redeem(req, res) {
+        let id = +req.params.id;
+        let session = req.session;
+        let input = {
+            "UserId": id,
+            "CoffeeId": 2,
+            "order": "Caffee Latee Redemption",
+            "price": 0
+        };
+
+        User.decrement({"purchaseToReward": 10}, {where: {id}})
+            .then(result => {
+                return CoffeeUser.create(input)
+            })
+            .then(()=> {
+                res.redirect('/orderlist')
             })
             .catch(err => {
                 res.send(err)
