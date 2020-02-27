@@ -30,7 +30,7 @@
       </div>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <%= !session.msg ? "Welcome, Guest" : session.msg %> &emsp;
+        <%= !session.msg ? "Welcome, guest" : session.msg %> &emsp;
           <% if (session.isLogin) { %>
             <button><a href="/logout">Logout</a></button> 
           <% } else { %>

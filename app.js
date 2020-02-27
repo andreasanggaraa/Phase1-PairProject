@@ -6,7 +6,7 @@ const session = require('express-session');
 const router = require ("./routes/index.js") 
 
 app.set("view engine", "ejs") // Menyambungkan mvc ke ejs
-
+app.use(express.static('public'))
 app.use(session({
     secret: 'hacktiv8',
     resave: false,

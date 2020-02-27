@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <%- include('partials/bootstrap-head.ejs') %>
+    <style>
+      .btn {border-color: #4CAF50; background-color: #4CAF50}
+      .btn :hover {border-color: #4CAF50; background-color: #00b894}
+    </style>
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
@@ -27,7 +31,7 @@
         </form>
       </div>
       <div align="center">
-        Belum punya Account? Silakan daftar <a href="/register">DISINI</a>
+        Belum punya akun? Silakan daftar <a href="/register">di sini</a>!
       </div>
     <%- include('partials/bootstrap-script.ejs'); %>
 </body>

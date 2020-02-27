@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <title>Users</title>
     <%- include('../partials/bootstrap-head.ejs'); %>
+    <style>
+
+      table th {background-color: #55efc4;}
+
+    </style>
 </head>
 
 <body>
-    <%- include('../partials/navbar.ejs') %>
-
+    <%- include('../partials/navbar.ejs') %><br>
+    <h2 align="center">Your Shop Inventory</h2>
     <table class="table table-striped" style="width:85%;margin-top: 50px;" align="center">
         <tr>
           <th>#</th>
-          <th>Name</th> 
+          <th>Item</th> 
           <th>Quantity</th>
         </tr>
         <% for( let i = 0; i < inventories.length; i++ ) { %>

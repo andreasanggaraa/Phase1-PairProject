@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+      .display-4 {
+        font-family: 'Oswald'
+      }
+      p {
+        font-family: 'Montserrat'
+      }
+      #coffee-background {
+        background-image: url("/assets/coffee-background-2.jpg");
+        background-size: 100vw
+      }
+      #coffee-header-1 {
+        color: white;
+      }
+      #coffee-header-2 {
+        color: white;
+      }
+
+
+    </style>
     <%- include('partials/bootstrap-head.ejs'); %>
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Selamat datang di MovieApp</h1>
-          <p class="lead">Silakan pilih menu pada Navbar di atas!</p>
+    <div class="jumbotron jumbotron-fluid" id="coffee-background">
+      <div class="container">
+        <!-- <img id="coffee-background" src="/assets/coffee-background-2.jpg" alt="coffee-background-2"> -->
+          <h1 class="display-4" align = "center" id="coffee-header-1">SELAMAT DATANG DI TUKUKOPI!</h1>
+          <p class="lead" align = "center" id="coffee-header-2">Silahkan memesan melalui menu navigasi di atas</p>
         </div>
       </div>
     <%- include('partials/bootstrap-script.ejs'); %>
