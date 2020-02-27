@@ -6,24 +6,28 @@ const inventoryRouter = require('./InventoryRouter.js')
 const LoginController = require('../controllers/LoginController.js')
 
 router.get('/', (req, res) => {
-    let msg = req.session.msg;
-    let isLogin = req.session.isLogin;
-    let role = req.session.role;
-    res.render('index.ejs', { msg, isLogin })
+    let session = req.session
+    res.render('index.ejs', {session})
 })
 
-router.get('/login', (req,res, next) => {
-    next()
-    
-    let msg = req.session.msg;
-    let isLogin = req.session.isLogin;
-    let role = req.session.role;
+router.get('/login', (req, res) => {
+    let session = req.session
+    res.render('login.ejs', {session})
+})
 
+router.get('/register', (req, res, next) => {
+    if(!req.session.isLogin) {
+        res.redirect('/login')
+    }
+    else {
+        next()
+    }
 }, (req, res) => {
-    let msg = "";
-    let isLogin;
-    res.render('login.ejs', { msg, isLogin })
+    res.redirect('/',)
 })
+
+router.get('/order', coffeeUserRoute)
+
 
 router.post('/login', LoginController.login)
 router.get('/logout', LoginController.logout)
