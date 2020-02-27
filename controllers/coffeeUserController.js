@@ -170,6 +170,28 @@ class CoffeeUserController {
                 res.send(err)
             })
     }
+
+    static redeem(req, res) {
+        let id = +req.params.id;
+        let session = req.session;
+        let input = {
+            "UserId": id,
+            "CoffeeId": 2,
+            "order": "Caffee Latee Redemption",
+            "price": 0
+        };
+
+        User.decrement({"purchaseToReward": 10}, {where: {id}})
+            .then(result => {
+                return CoffeeUser.create(input)
+            })
+            .then(()=> {
+                res.redirect('/orderlist')
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
 }
 
 module.exports = CoffeeUserController

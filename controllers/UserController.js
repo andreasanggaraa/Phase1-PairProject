@@ -56,6 +56,18 @@ class UserController {
             })
     }
 
+    static delete(req, res) {
+        let id = +req.params.id
+
+        User.destroy({where: {id}})
+            .then(deleted => {
+                res.redirect('userlist')
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
 }
 
 module.exports = UserController
