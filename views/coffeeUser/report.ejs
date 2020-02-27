@@ -23,56 +23,38 @@
           padding: 8px;
         }
         
-        tr:nth-child(odd) {
+        tr:nth-child(even) {
           background-color: #dddddd;
         }
-        th{
-          background-color: #55efc4
-        }
-        #accept-button {
-          background-color: #0984e3;
-          color: white;
-          padding: 10px 25px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          border-radius: 3px;
-        }
-        #remove-button{
-          background-color: #f44336;
-          color: white;
-          padding: 10px 25px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          border-radius: 3px
-        }
-
     </style>
 </head>
 <body>
   <%- include('../partials/navbar.ejs') %>
-    <h2>Today's Coffee Order</h2>
+  <div align="center">
+      <h1>Report</h1>
+  
+      <h3>Total Sales: <%= sales %> </h3>
+
+  </div>  
+    
 
     <table align="center">
         <tr>
-            <th>No.</th>
-            <th>Customer</th>
-            <th>Order</th>
-            <th>Status</th>
-            <th>Price</th>
-            <th>Action</th>
+            <td>No.</td>
+            <td>Customer</td>
+            <td>Order</td>
+            <td>Price</td>
+            <td>Action</td>
         </tr>
         <% for(i = 0; i < result.length; i++) { %> 
         <tr>
             <td><%= i+1 %></td>
             <td>Nama</td>
             <td><%= result[i]["order"] %></td>
-            <td><%= result[i].getStatus() %></td>
             <td><%= result[i]["price"] %></td>
             <td>
               <% if (!result[i].isAccepted) { %>
-                <a href="/orderList/<%= result[i].id %>/accept" id="accept-button">Accept</a>
+                <a href="/orderList/<%= result[i].id %>/accept">Accept</a>
               <% } else if (!result[i].isPrepared) { %>
                 <a href="/orderList/<%= result[i].id %>/prepare">Prepare</a>
               <% } else if (!result[i].isReady) { %>
@@ -81,7 +63,7 @@
                 <a>Order Completed</a>   
               <% } %>
               &emsp;
-              <a href="orderlist/<%= result[i].id %>/remove" onclick="return confirm('Are you sure you want to delete this order?')" id="remove-button" >Remove</a>
+              <a href="orderlist/<%= result[i].id %>/remove" onclick="return confirm('Are you sure you want to delete this order?')">Remove</a>
             </td>
         </tr>
       <% } %> 

@@ -16,17 +16,19 @@
     <h2 align="center">Your Shop Inventory</h2>
     <table class="table table-striped" style="width:85%;margin-top: 50px;" align="center">
         <tr>
-          <th>#</th>
-          <th>Item</th> 
-          <th>Quantity</th>
+          <th>Espresso</th> 
+          <th>Milk</th>
+          <th>Ice</th>
+          <th>Sugar</th>  
+          <th>Cup</th>
         </tr>
-        <% for( let i = 0; i < inventories.length; i++ ) { %>
-            <tr>
-                <td><%= inventories[i].id %> </td>
-                <td><%= inventories[i].stockName %> </td>
-                <td><%= inventories[i].quantity %> </td>
-              </tr>
-        <% } %>
+        <tr>
+            <td><%= inventories[0].dataValues.espresso %> </td>
+            <td><%= inventories[0].dataValues.milk %> </td>
+            <td><%= inventories[0].dataValues.ice %> </td>
+            <td><%= inventories[0].dataValues.sugar %> </td>
+            <td><%= inventories[0].dataValues.cup %> </td>
+          </tr>
       </table>
 
 <%- include('../partials/bootstrap-script.ejs'); %>

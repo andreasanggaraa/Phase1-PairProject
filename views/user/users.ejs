@@ -25,9 +25,9 @@
         <% for( let i = 0; i < users.length; i++ ) { %>
             <tr>
                 <td><%= users[i].id %> </td>
-                <td><%= `${users[i].firstName} ${users[i].lastName}` %> </td>
+                <td><%= users[i].fullName %> </td>
                 <td><%= users[i].freecup %> </td>
-                <td> Redeem Reward</td>
+                <td> Redeem </td>
               </tr>
         <% } %>
       </table>

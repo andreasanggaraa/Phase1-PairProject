@@ -5,7 +5,7 @@
         "fullName": "Andreas Anggara",
         "freecup": 1,
         "purchaseToReward": 8,
-        "role": "customer"
+        "role": "admin"
     },
     {
         "username": "andre",
@@ -14,5 +14,13 @@
         "freecup": 0,
         "purchaseToReward": 0,
         "role": "admin"
+    },
+    {
+        "username": "1",
+        "password": "1",
+        "fullName": "Tester",
+        "freecup": 0,
+        "purchaseToReward": 0,
+        "role": "customer"
     }
 ]

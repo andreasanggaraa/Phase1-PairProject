@@ -14,14 +14,16 @@
         }
 
         #coffee-1 {
-            width:40vw;
-            height:40vw
+            width:30vw;
+            margin: 10px;
+            /* height:30vw */
             /* height:550px */
         }
 
         #coffee-2 {
-            width:40vw;
-            /* height:40 w */
+            width:30vw;
+            margin: 10px
+            /* height:35vw */
             /* height:550px */
         }
 
@@ -38,6 +40,14 @@
             margin-right: auto;
             width : 450px
         }
+        .input-hidden {
+            position: absolute;
+            left: -9999px;
+        }
+        input[type=radio]:checked + label>img {
+            border: 1px solid #fff;
+            box-shadow: 0 0 3px 3px #55efc4;
+        }
 
     </style>
 </head>
@@ -47,25 +57,19 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">Please choose your coffee!</label>
                 <div id="coffee-selections">
-                    <img src="assets/coffee-1-americano.jpg" alt="coffee-1-americano" id="coffee-1">
-                    <img src="assets/coffee-2-caffe-latte.jpg" alt="coffee-2-caffe-latte" id="coffee-2">
-                </div>
-            <select class="form-control" name="CoffeeId" id="CoffeeId">
-                <% for( let i = 0; i < menus.length; i++ ) { %>
-                    <option value="<%= menus[i].id %>" id="menu-option" ><%= menus[i].name %></option>
-                <% } %>
-
-                <div class="container">
-                    <img src="img_snow.jpg" alt="Snow">
-                    <button class="btn">Button</button>
-                </div>
-            </select>
-        </div>
-
-        
-        <button type="submit" class="btn btn-primary">ORDER NOW</button>
+                    <input type="radio" name="CoffeeId" id="americano" class="input-hidden" value="<%= menus[0].id %>"/>
+                    <label for="americano">
+                        <img src="assets/coffee-1-americano.jpg" alt="americano" id="coffee-1"/>
+                    </label>
+            
+                    <input type="radio" name="CoffeeId" id="caffe-latte" class="input-hidden" value="<%= menus[1].id %>"/>
+                    <label for="caffe-latte">
+                        <img src="assets/coffee-2-caffe-latte.jpg" alt="caffe-latte" id="coffee-2"/>
+                    </label>
+                </div>               
+            <button type="submit" class="btn btn-primary">ORDER NOW</button>
     </form>
- 
+            
 
     <%- include('./partials/bootstrap-script.ejs'); %>
 </body>

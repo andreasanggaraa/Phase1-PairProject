@@ -35,16 +35,22 @@ router.get('/logout', LoginController.logout)
 // Admin
 router.get('/userlist', UserController.findAll)
 router.use('/inventory', InventoryController.findAll)
-router.get('/orderlist', CoffeeUserController.findAll)
+router.get('/orderlist', CoffeeUserController.completedOrder)
 router.get('/menu', CoffeeController.findAll)
 
+router.get('/orderList/:orderId/accept', CoffeeUserController.acceptOrder)
+router.get('/orderList/:orderId/prepare', CoffeeUserController.prepareOrder)
+router.get('/orderList/:orderId/serve', CoffeeUserController.finishedOrder)
+router.get('/orderList/:orderId/remove', CoffeeUserController.delete)
 
 router.get('/order', CoffeeUserController.addForm)
 router.post('/order', CoffeeUserController.createNewEntry)
 
-router.get('/purchase', CoffeeUserController.orderById)
-
+router.get('/history', CoffeeUserController.orderById)
 router.use('/hackoffee', coffeeUserRoute)
+
+router.get('/report', CoffeeUserController.report)
+
 
 
 module.exports = router;
