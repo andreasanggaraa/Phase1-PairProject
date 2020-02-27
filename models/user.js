@@ -4,8 +4,16 @@ module.exports = (sequelize, DataTypes) => {
   class User extends sequelize.Sequelize.Model {}
 
     User.init({
-      username: DataTypes.STRING,
-      password: DataTypes.STRING,
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+        
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       fullName: DataTypes.STRING,
       freecup: DataTypes.INTEGER,
       purchaseToReward: DataTypes.INTEGER,
@@ -14,7 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       hooks: {
         beforeCreate: (User, options) => {
-          User.role = "customer"
+          User.role = "customer",
+          User.freecup = 0,
+          User.purchaseToReward = 0
         }
       },
       sequelize

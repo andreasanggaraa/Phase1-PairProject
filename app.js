@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express() // Gunakan express di setiap
-const port = 3003 // Tetapkan alamat port
+const port = 3000 // Tetapkan alamat port
 const session = require('express-session');
 app.use(express.static('public'))
 

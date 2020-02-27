@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         return "Waiting to accepted"
       }
     }
+    
   }
   
     CoffeeUser.init({
