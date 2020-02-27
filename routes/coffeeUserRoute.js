@@ -1,5 +1,5 @@
 const coffeeUserRoute = require("express").Router()
-const CoffeeUserController = require ("../controller/coffeeUserController")
+const CoffeeUserController = require ("../controllers/coffeeUserController")
 
 coffeeUserRoute.get("/orderlist",CoffeeUserController.findAll)
 
