@@ -5,6 +5,7 @@ const coffeeUserRoute = require ("./coffeeUserRoute")
 // const inventoryRouter = require('./InventoryRouter.js')
 const LoginController = require('../controllers/LoginController.js')
 const authentication = require('../middlewares/authentication.js')
+const isAdmin = require('../middlewares/admin.js')
 const UserController = require('../controllers/UserController.js')
 const InventoryController = require('../controllers/InventoryController')
 const CoffeeUserController = require('../controllers/coffeeUserController.js')
@@ -33,7 +34,13 @@ router.post('/login', LoginController.login)
 router.use(authentication)
 router.get('/logout', LoginController.logout)
 
+// Customer
+router.get('/order', CoffeeUserController.addForm)
+router.post('/order', CoffeeUserController.createNewEntry)
+router.get('/history', CoffeeUserController.orderById)
+
 // Admin
+router.use(isAdmin)
 router.get('/userlist', UserController.findAll)
 router.use('/inventory', InventoryController.findAll)
 router.get('/orderlist', CoffeeUserController.completedOrder)
@@ -43,12 +50,6 @@ router.get('/orderList/:orderId/accept', CoffeeUserController.acceptOrder)
 router.get('/orderList/:orderId/prepare', CoffeeUserController.prepareOrder)
 router.get('/orderList/:orderId/serve', CoffeeUserController.finishedOrder)
 router.get('/orderList/:orderId/remove', CoffeeUserController.delete)
-
-router.get('/order', CoffeeUserController.addForm)
-router.post('/order', CoffeeUserController.createNewEntry)
-
-router.get('/history', CoffeeUserController.orderById)
-router.use('/hackoffee', coffeeUserRoute)
 
 router.get('/report', CoffeeUserController.report)
 router.get('/redeem/:id', CoffeeUserController.redeem)

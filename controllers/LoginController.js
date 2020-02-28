@@ -13,6 +13,7 @@ class LoginController {
             .then(logged => {
                 if(logged.length !== 0) {
                     logged[0].role === "admin" ? req.session.role = "admin" : req.session.role = "customer";
+                    req.session.role === "admin" ? req.session.isAdmin = true : req.session.isAdmin = false
                     req.session.msg = `Welcome, ${logged[0].username}`;
                     req.session.isLogin = true;
                     req.session.loginId = logged[0].dataValues.id
