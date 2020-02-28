@@ -1,6 +1,6 @@
 function authentication (req, res, next) {
     if(!req.session.isLogin) {
-        res.redirect('back')
+        res.redirect('/')
     }
     else {
         next()

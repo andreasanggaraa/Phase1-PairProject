@@ -56,7 +56,7 @@
                 <td>
                   <a href="/edit/<%= users[i].id %>" id="edit-button"> Edit  </a>
                   <a href="/delete/<%= users[i].id %>" id="delete-button"> Delete  </a>
-                  <a href='/redeem/<%= users[i].id %>' id="redeem-button"> <%= users[i].purchaseToReward >= 10 ? "Redeem" : "" %> Redeem </a>
+                  <a href='/redeem/<%= users[i].id %>'>  <%= users[i].purchaseToReward >= 10 ? "Redeem" : "" %> </a>
 
                 </td>
               </tr>

@@ -172,6 +172,8 @@ class CoffeeUserController {
     }
 
     static redeem(req, res) {
+
+        
         let id = +req.params.id;
         let session = req.session;
         let input = {

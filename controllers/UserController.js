@@ -33,10 +33,11 @@ class UserController {
 
     static editUserLanding(req, res) {
         let id = +req.params.id
+        let session = req.session
 
         User.findByPk(id)
             .then(toBeEdited => {
-                res.render('user/editUser.ejs', toBeEdited)
+                res.render('user/editUser.ejs', {toBeEdited, session})
             })
             .catch(err => {
                 res.send(err)
@@ -47,9 +48,10 @@ class UserController {
     static editUser(req, res) {
         let id = +req.params.id;
 
-        User.update( { where: { id } })
+        console.log(id);
+        User.update(req.body, { where: {id} })
             .then(edited => {
-                res.render('user/users.ejs')
+                res.redirect('/userlist')
             })
             .catch(err => {
                 res.send(err)
