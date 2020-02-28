@@ -2,7 +2,7 @@ function getRupiah(number) {
     let rupiah = '';		
     let rupiahReverse = number.toString().split('').reverse().join('');
     for(let i = 0; i < rupiahReverse.length; i++) {
-        if(i%3 == 0) {
+        if(i % 3 == 0) {
             rupiah += rupiahReverse.substr(i,3)+'.'
         }
     }
