@@ -17,15 +17,7 @@
           width: 80%;
         }
         
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
+        table th {background-color: #55efc4;}
     </style>
 </head>
 <body>
@@ -33,18 +25,18 @@
   <div align="center">
       <h1>Report</h1>
   
-      <h3>Total Sales: <%= sales %> </h3>
+      <h4>Total Sales: <%= sales %> </h4>
 
   </div>  
     
 
     <table align="center">
         <tr>
-            <td>No.</td>
-            <td>Customer</td>
-            <td>Order</td>
-            <td>Price</td>
-            <td>Action</td>
+            <th>No.</th>
+            <th>Customer</th>
+            <th>Order</th>
+            <th>Price</th>
+            <th>Action</th>
         </tr>
         <% for(i = 0; i < result.length; i++) { %> 
         <tr>
