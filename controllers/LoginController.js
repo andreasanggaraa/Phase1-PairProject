@@ -22,8 +22,8 @@ class LoginController {
                 else {
                     req.session.role = "Guest";
                     req.session.isLogin = false;
-                    req.session.msg = "User / Password invalid!";
-                    res.send("Gagal login");
+                    req.session.error = "User / Password invalid!";
+                    res.redirect('/login');
                 }
             })
 

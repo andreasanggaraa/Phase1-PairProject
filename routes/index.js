@@ -21,11 +21,14 @@ router.get('/register', (req, res) => {
     let session = req.session
     res.render('register.ejs', { session }) 
 })
+
 router.post('/register', UserController.addUser)
 
 router.get('/login', (req, res) => {
+    let errmsg = req.session.error
+    delete req.session.error
     let session = req.session
-    res.render('login.ejs', { session })
+    res.render('login.ejs', { session , errmsg})
 })
 
 router.post('/login', LoginController.login)
