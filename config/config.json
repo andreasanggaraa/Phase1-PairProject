@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "andreasanggara",
+    "password": "andreace",
+    "database": "HacKoffee",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "kzdgowoexkxnyg",
+    "password": "43163faa5cb3222f8726d3fa8987ffc2bd270da748c035160692a8056c87517e",
+    "database": "d4t56pm53i2i81",
+    "host": "ec2-54-80-184-43.compute-1.amazonaws.com",
+    "dialect": "postgres"
+  }
+}

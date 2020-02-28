@@ -1,6 +1,6 @@
 const express = require('express')
-const app = express() // Gunakan express di setiap
-const port = 3000 // Tetapkan alamat port
+const app = express()
+const port = process.env.PORT || 4000;
 const session = require('express-session');
 app.use(express.static('public'))
 
@@ -17,4 +17,4 @@ app.use(express.urlencoded({extended:true}))
 
 app.use(router) 
 
-app.listen(port, () => console.log(`I love you ${port}!`))
+app.listen(port, () => console.log(`Server Starts on ${port}`))
